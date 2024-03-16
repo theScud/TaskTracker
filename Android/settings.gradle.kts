@@ -12,7 +12,6 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
@@ -20,5 +19,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TaskTracker"
-include(":app")
- 
+include(":app", ":task-list-item-ui")
