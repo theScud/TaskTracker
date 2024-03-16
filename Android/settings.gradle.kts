@@ -19,4 +19,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "TaskTracker"
-include(":app", ":task-list-item-ui")
+include(":app", ":task-list-item-ui", ":task-list-ui")
