@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.2"
     }
     packaging {
         resources {
@@ -53,6 +53,7 @@ dependencies {
 
     implementation(projects.taskListUi)
     implementation(projects.taskListItemUi)
+    implementation(projects.tasks)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
