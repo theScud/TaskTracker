@@ -51,8 +51,8 @@ android {
 
 dependencies {
 
-    implementation(project(":task-list-ui"))
-    implementation(project(":task-list-item-ui"))
+    implementation(projects.taskListUi)
+    implementation(projects.taskListItemUi)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

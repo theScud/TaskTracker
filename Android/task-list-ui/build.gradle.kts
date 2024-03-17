@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":task-list-item-ui"))
+    implementation(projects.taskListItemUi)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
