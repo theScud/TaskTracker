@@ -1,5 +1,7 @@
 package com.thescud.task_list_ui
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
@@ -11,14 +13,14 @@ import com.thescud.task_list_item_ui.TaskListItem
 @Composable
 fun TaskListScreen(modifier: Modifier = Modifier) {
     val items = remember { mutableStateListOf("Item 1", "Item 2", "Item 3") }
-    LazyColumn(modifier) {
+    LazyColumn(modifier.fillMaxHeight().fillMaxWidth()) {
         items.forEach {
             item {
-                TaskListItem(modifier, it)
+                TaskListItem(Modifier, it)
             }
         }
         item {
-            EditableTaskListItem { items.add(it) }
+            EditableTaskListItem(Modifier.fillMaxWidth()) { items.add(it) }
         }
     }
 }

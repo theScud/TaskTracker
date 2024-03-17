@@ -21,10 +21,12 @@ fun EditableTaskListItem(modifier: Modifier = Modifier, onSend: (String) -> Unit
     TextField(
         modifier = modifier,
         value = currentText,
+        label = { Text(text = "Add new task") },
         onValueChange = { currentText = it },
         keyboardOptions = KeyboardOptions(
             imeAction = ImeAction.Send
         ),
+        maxLines = 1,
         keyboardActions = KeyboardActions(
             onSend = { onSend(currentText) }
         ),
