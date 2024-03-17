@@ -3,6 +3,7 @@ package com.thescud.tasks
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface TaskDao {
@@ -15,4 +16,7 @@ interface TaskDao {
 
     @Insert
     fun insertTask(task: TaskTable)
+
+    @Update
+    fun updateTask(task: TaskTable)
 }
