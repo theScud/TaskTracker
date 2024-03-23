@@ -7,9 +7,9 @@ import com.thescud.tasks_api.Task
 
 @Entity
 data class TaskTable(
-    @PrimaryKey override val id: Int,
-    @ColumnInfo(name = "short_description") val shortDesc: String?,
-    @ColumnInfo(name = "detailed_description") val longDesc: String?,
+    @PrimaryKey(autoGenerate = true) override val id: Int = 0,
+    @ColumnInfo(name = "short_description") val shortDesc: String? = null,
+    @ColumnInfo(name = "detailed_description") val longDesc: String? = null,
     @ColumnInfo(name = "completed") val completed: Boolean = false
 ) : Task {
 
