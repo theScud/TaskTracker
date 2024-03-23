@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.hiltPlugin)
 }
 
 android {
@@ -30,6 +31,8 @@ dependencies {
     api(projects.tasksApi)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
+    implementation(libs.daggerAndroid)
     annotationProcessor(libs.androidx.room.compiler)
+    ksp(libs.hiltCompiler)
     ksp(libs.androidx.room.compiler)
 }

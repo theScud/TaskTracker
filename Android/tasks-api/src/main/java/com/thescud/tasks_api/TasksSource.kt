@@ -1,7 +1,9 @@
 package com.thescud.tasks_api
 
+import kotlinx.coroutines.flow.Flow
+
 interface TasksSource {
-    fun getAllTasks(): List<Task>
-    fun getTaskById(id: Int): Task
-    fun changeTaskState(id: Int, completed: Boolean)
+    fun getAllTasks(): Flow<List<Task>>
+    fun getTaskById(id: Int): Flow<Task>
+    suspend fun changeTaskState(id: Int, completed: Boolean)
 }

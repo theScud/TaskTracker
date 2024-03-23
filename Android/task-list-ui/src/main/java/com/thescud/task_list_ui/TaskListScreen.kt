@@ -12,13 +12,13 @@ import com.thescud.task_list_item_ui.EditableTaskListItem
 import com.thescud.task_list_item_ui.TaskListItem
 
 @Composable
-fun TaskListScreen(modifier: Modifier = Modifier) {
-    val viewModel = viewModel<TaskListViewModel>()
+fun TaskListScreen(modifier: Modifier = Modifier, viewModel: TaskListViewModel = viewModel()) {
     val items by viewModel.tasks.collectAsState()
     LazyColumn(
         modifier
             .fillMaxHeight()
-            .fillMaxWidth()) {
+            .fillMaxWidth()
+    ) {
         items.forEach {
             item {
                 TaskListItem(Modifier, it)

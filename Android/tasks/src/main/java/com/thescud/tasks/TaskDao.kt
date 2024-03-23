@@ -3,20 +3,20 @@ package com.thescud.tasks
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskDao {
 
     @Query("SELECT * FROM tasktable")
-    fun getAllTasks(): List<TaskTable>
+    fun getAllTasks(): Flow<List<TaskTable>>
 
     @Query("SELECT * FROM tasktable WHERE id = :id LIMIT 1")
-    fun getTaskWithId(id: Int): TaskTable
+    fun getTaskWithId(id: Int): Flow<TaskTable>
 
     @Insert
-    fun insertTask(task: TaskTable)
+    suspend fun insertTask(task: TaskTable)
 
-    @Update
-    fun updateTask(task: TaskTable)
+    @Query("UPDATE tasktable SET completed = :completed WHERE id = :id")
+    suspend fun updateTask(id: Int, completed: Boolean)
 }

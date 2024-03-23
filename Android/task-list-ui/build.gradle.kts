@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.mannodermausJUnitPlugin)
+    alias(libs.plugins.hiltPlugin)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -36,6 +38,7 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.daggerAndroid)
     implementation(projects.tasksApi)
+    ksp(libs.hiltCompiler)
     testImplementation(libs.bundles.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
