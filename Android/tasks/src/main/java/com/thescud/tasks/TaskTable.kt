@@ -16,4 +16,6 @@ data class TaskTable(
     override fun shortDescription(): String = shortDesc.orEmpty()
 
     override fun detailedDescription(): String = longDesc.orEmpty()
+
+    override fun isComplete() = completed
 }

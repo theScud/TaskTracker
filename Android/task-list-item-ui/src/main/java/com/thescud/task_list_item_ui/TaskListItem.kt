@@ -34,13 +34,17 @@ fun EditableTaskListItem(modifier: Modifier = Modifier, onSend: (String) -> Unit
 }
 
 @Composable
-fun TaskListItem(modifier: Modifier = Modifier, shortDescription: String) {
-    var checkedState by remember { mutableStateOf(false) }
+fun TaskListItem(
+    modifier: Modifier = Modifier,
+    shortDescription: String,
+    completed: Boolean,
+    onCheckedChanged: (Boolean) -> Unit
+) {
     Row(modifier) {
         Checkbox(
             modifier = modifier,
-            checked = checkedState,
-            onCheckedChange = { checkedState = it },
+            checked = completed,
+            onCheckedChange = { onCheckedChanged(it) },
         )
         Text(modifier = modifier.align(Alignment.CenterVertically), text = shortDescription)
     }

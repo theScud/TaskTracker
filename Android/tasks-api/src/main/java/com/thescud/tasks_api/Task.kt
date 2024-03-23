@@ -4,4 +4,5 @@ interface Task {
     val id: Int
     fun shortDescription(): String
     fun detailedDescription(): String
+    fun isComplete(): Boolean
 }
