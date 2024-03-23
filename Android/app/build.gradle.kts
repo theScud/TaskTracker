@@ -69,7 +69,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.daggerAndroid)
     ksp(libs.hiltCompiler)
-    testImplementation(libs.junit)
+    testImplementation(libs.bundles.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
