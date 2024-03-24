@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.flowOf
 
 class FakeTaskSource : TasksSource {
 
+    private var currentId = 0
     private val tasks = MutableStateFlow(listOf<Task>())
 
     override fun getAllTasks(): Flow<List<Task>> = tasks.asStateFlow()
@@ -21,6 +22,6 @@ class FakeTaskSource : TasksSource {
     }
 
     override suspend fun insertTask(shortDescription: String) {
-        tasks.value += StubTaskImpl(shortDesc = shortDescription)
+        tasks.value += StubTaskImpl(id = currentId++, shortDesc = shortDescription)
     }
 }

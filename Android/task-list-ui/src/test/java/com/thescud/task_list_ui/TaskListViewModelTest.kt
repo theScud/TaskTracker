@@ -27,4 +27,21 @@ class TaskListViewModelTest {
         advanceUntilIdle()
         assertEquals(listOf(expected), objectUnderTest.tasks.value)
     }
+
+    @Test
+    fun `when completing task then VM updates tasks`() = runTest {
+        objectUnderTest = TaskListViewModel(FakeTaskSource())
+
+        val expected = StubTaskImpl(shortDesc = "New task")
+        assertTrue(objectUnderTest.tasks.first().isEmpty())
+        objectUnderTest.addTask(expected.shortDescription())
+
+        advanceUntilIdle()
+        assertEquals(listOf(expected), objectUnderTest.tasks.value)
+
+        objectUnderTest.finishTask(0, true)
+        advanceUntilIdle()
+        expected.completed = true
+        assertEquals(listOf(expected), objectUnderTest.tasks.value)
+    }
 }
