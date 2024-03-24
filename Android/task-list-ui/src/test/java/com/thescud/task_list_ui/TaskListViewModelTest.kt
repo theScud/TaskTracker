@@ -1,6 +1,7 @@
 package com.thescud.task_list_ui
 
 import com.thescud.coroutines_test.CoroutineTestExtension
+import com.thescud.tasks_api.Task
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -43,5 +44,21 @@ class TaskListViewModelTest {
         advanceUntilIdle()
         expected.completed = true
         assertEquals(listOf(expected), objectUnderTest.tasks.value)
+    }
+
+    @Test
+    fun `when deleting task then VM updates tasks`() = runTest {
+        objectUnderTest = TaskListViewModel(FakeTaskSource())
+
+        val expected = StubTaskImpl(shortDesc = "New task")
+        assertTrue(objectUnderTest.tasks.first().isEmpty())
+        objectUnderTest.addTask(expected.shortDescription())
+
+        advanceUntilIdle()
+        assertEquals(listOf(expected), objectUnderTest.tasks.value)
+
+        objectUnderTest.delete(0)
+        advanceUntilIdle()
+        assertEquals(emptyList<Task>(), objectUnderTest.tasks.value)
     }
 }
