@@ -19,11 +19,17 @@ fun TaskListScreen(modifier: Modifier = Modifier, viewModel: TaskListViewModel =
             .fillMaxHeight()
             .fillMaxWidth()
     ) {
-        items.forEach { task ->
-            item(task.id) {
-                TaskListItem(Modifier, task.shortDescription(), task.isComplete()) { completed ->
+        items(items.size, key = { items[it].id }) { index ->
+            val task = items[index]
+            TaskListItem(
+                Modifier,
+                task.shortDescription(),
+                task.isComplete(),
+                task.id,
+                { completed ->
                     viewModel.finishTask(task.id, completed)
-                }
+                }) {
+                viewModel.delete(task.id)
             }
         }
         item {

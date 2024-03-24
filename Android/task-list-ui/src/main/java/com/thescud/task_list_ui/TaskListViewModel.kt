@@ -32,4 +32,10 @@ class TaskListViewModel @Inject constructor(private val tasksSource: TasksSource
             tasksSource.changeTaskState(id, completed)
         }
     }
+
+    fun delete(id: Int) {
+        viewModelScope.launch(AppDispatchers.io) {
+            tasksSource.deleteTask(id)
+        }
+    }
 }
