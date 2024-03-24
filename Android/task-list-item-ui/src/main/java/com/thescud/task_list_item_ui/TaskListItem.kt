@@ -13,7 +13,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.unit.sp
 
 @Composable
 fun EditableTaskListItem(modifier: Modifier = Modifier, onSend: (String) -> Unit) {
@@ -46,6 +49,14 @@ fun TaskListItem(
             checked = completed,
             onCheckedChange = { onCheckedChanged(it) },
         )
-        Text(modifier = modifier.align(Alignment.CenterVertically), text = shortDescription)
+        Text(
+            modifier = modifier.align(Alignment.CenterVertically),
+            text = shortDescription,
+            style = TextStyle(textDecoration = textDecoration(completed)),
+            fontSize = 18.sp
+        )
     }
 }
+
+private fun textDecoration(completed: Boolean) =
+    if (completed) TextDecoration.LineThrough else TextDecoration.None
