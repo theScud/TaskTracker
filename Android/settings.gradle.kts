@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "TaskTracker"
 include(":app", ":task-list-item-ui", ":task-list-ui", ":tasks", ":tasks-api")
+include(":coroutines", ":coroutines-test")

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.thescud.tasks_api"
+    namespace = "com.thescud.coroutines"
     compileSdk = 34
 
     compileOptions {
@@ -17,10 +17,5 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.bundles.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.kotlinx.coroutines.core)
 }

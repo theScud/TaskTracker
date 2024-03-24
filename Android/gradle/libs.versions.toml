@@ -4,6 +4,7 @@ agp = "8.3.0"
 appcompat = "1.6.1"
 composeBom = "2024.02.02"
 coreKtx = "1.12.0"
+coroutines = "1.8.0"
 dagger = "2.51"
 espressoCore = "3.5.1"
 foundationAndroid = "1.6.3"
@@ -15,6 +16,7 @@ ksp = "1.9.0-1.0.13"
 lifecycleRuntimeKtx = "2.7.0"
 material = "1.11.0"
 room = "2.6.1"
+junitJunit = "4.13.2"
 
 [libraries]
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -41,7 +43,10 @@ daggerAndroid = { group = "com.google.dagger", name = "hilt-android", version.re
 hiltCompiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "dagger" }
 junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+turbine = { group = "app.cash.turbine", name = "turbine", version.strictly = "1.1.0" }
 
 [bundles]
 junit = ["junit-jupiter-api", "junit-jupiter-engine"]
