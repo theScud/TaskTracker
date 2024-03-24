@@ -2,10 +2,10 @@ package com.thescud.task_list_ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.thescud.coroutines.AppDispatchers
 import com.thescud.tasks_api.Task
 import com.thescud.tasks_api.TasksSource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
@@ -22,13 +22,13 @@ class TaskListViewModel @Inject constructor(private val tasksSource: TasksSource
         get() = _tasks
 
     fun addTask(shortDescription: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(AppDispatchers.io) {
             tasksSource.insertTask(shortDescription)
         }
     }
 
     fun finishTask(id: Int, completed: Boolean) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(AppDispatchers.io) {
             tasksSource.changeTaskState(id, completed)
         }
     }

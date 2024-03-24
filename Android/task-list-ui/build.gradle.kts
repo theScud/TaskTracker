@@ -27,6 +27,8 @@ android {
 
 dependencies {
     implementation(projects.taskListItemUi)
+    implementation(projects.tasksApi)
+    implementation(projects.coroutines)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -37,9 +39,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.daggerAndroid)
-    implementation(projects.tasksApi)
     ksp(libs.hiltCompiler)
+    testImplementation(projects.coroutinesTest)
     testImplementation(libs.bundles.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
