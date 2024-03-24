@@ -22,4 +22,8 @@ class TaskSourceImpl @Inject constructor(private val taskDao: TaskDao) : TasksSo
     override suspend fun insertTask(shortDescription: String) {
         taskDao.insertTask(TaskTable(shortDesc = shortDescription))
     }
+
+    override suspend fun deleteTask(id: Int) {
+        taskDao.deleteTask(id)
+    }
 }

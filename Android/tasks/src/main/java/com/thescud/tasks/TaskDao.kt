@@ -19,4 +19,7 @@ interface TaskDao {
 
     @Query("UPDATE tasktable SET completed = :completed WHERE id = :id")
     suspend fun updateTask(id: Int, completed: Boolean)
+
+    @Query("DELETE FROM tasktable WHERE id = :id")
+    suspend fun deleteTask(id: Int)
 }

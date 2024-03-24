@@ -24,4 +24,8 @@ class FakeTaskSource : TasksSource {
     override suspend fun insertTask(shortDescription: String) {
         tasks.value += StubTaskImpl(id = currentId++, shortDesc = shortDescription)
     }
+
+    override suspend fun deleteTask(id: Int) {
+        tasks.value = tasks.value.filter { it.id != id }
+    }
 }
